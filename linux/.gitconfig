@@ -1,0 +1,12 @@
+[user]
+	email = znewton@iastate.edu
+	name = znewton
+[alias]
+	status = st
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	visual = !gitk
