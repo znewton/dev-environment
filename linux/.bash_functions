@@ -37,3 +37,11 @@ dadJoke() {
   curl -H "Accept: text/plain" https://icanhazdadjoke.com/
   echo ""
 }
+
+gitContributions() {
+  for var in "$@"; do 
+    echo "$var Contributions:"
+    git log --author="$var" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "  added lines: \033[38;5;84m+%s\033[0m\n  removed lines: \033[38;5;197m-%s\033[0m\n  total lines: \033[38;5;45m%s\033[0m\n", add, subs, loc }' -
+  done
+}
+

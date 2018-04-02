@@ -13,7 +13,7 @@ setterm -blength 0
 # On Boot
 # -------
 
-GREY='\033[38;5;240m'
+GREY='\033[38;5;244m'
 BLUE='\033[38;5;45m'
 NC='\033[0m'
 clear
@@ -33,3 +33,4 @@ ${GREY}       ##  ${BLUE}   ##            ${GREY}    ##
 ${GREY}           ${BLUE}  ##             ${GREY}
 
 ${NC}"
+

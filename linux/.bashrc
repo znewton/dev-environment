@@ -60,7 +60,7 @@ parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e's/* \(.*\)/ (\1)/'
 }
 if [ "$color_prompt" = yes ]; then
-  PS1='\[\033[38;5;240m\][\D{%m/%d} \@] \[\033[00m\]${debian_chroot:+($debian_chroot)}\[\033[38;5;63m\]\u@\h\[\033[38;5;245m\]: \[\033[38;5;214m\]\w\[\033[38;5;242m\] $(parse_git_branch)\[\033[00m\]\n\$ '
+  PS1='\[\033[38;5;240m\][\D{%m/%d} \@] \[\033[00m\]${debian_chroot:+($debian_chroot)}\[\033[38;5;104m\]\u@\h\[\033[38;5;245m\]: \[\033[38;5;204m\]\w\[\033[38;5;244m\] $(parse_git_branch)\[\033[00m\]\n\$ '
 else
 	PS1='[\D{%Y/%m/%d}\@]${debian_chroot:+($debian_chroot)}\u@\h:\w\n\$'
 fi
@@ -113,6 +113,9 @@ fi
 if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
+if [ -f ~/.bash_private ]; then
+    . ~/.bash_private
+fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -124,3 +127,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export M2_HOME=/opt/apache-maven-3.5.2
+export PATH=${M2_HOME}/bin:${PATH}
+
