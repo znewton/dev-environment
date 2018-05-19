@@ -1,0 +1,57 @@
+files=( ".bash_aliases" ".bash_functions" ".bash_profile" ".bash_ascii_art" ".bash_colors" ".env_vars" ".gitconfig" ".vimrc" )
+
+DIR="$PWD"
+
+cd $HOME
+for file in "${files[@]}"; do
+  echo "Linking $file..."
+  if [ -e $file ]; then
+    echo "  Removing existing link..."
+    rm -rf "$HOME/$file"
+  fi
+  if [ -e "$DIR/$file" ]; then
+    echo "  Creating link..."
+    ln -s "$DIR/$file" 
+  fi
+done
+
+# ---
+# Git
+# ---
+
+echo -n "GitHub Name (e.g. John Smith): "
+read ghubName
+echo -n "GitHub Email: "
+read ghubEmail
+
+git config --global user.name "$ghubName"
+git config --global user.email "$ghubEmail"
+
+# ---
+# Vim
+# ---
+
+mkdir ~/.vim
+cd ~/.vim
+git clone git@github.com:vim-airline/vim-airline.git
+git clone git@github.com:vim-airline/vim-airline-themes.git
+
+mkdir autoload doc plugin colors
+
+cd autoload
+ln -s ~/.vim/vim-airline/autoload/airline
+ln -s ~/.vim/vim-airline/autoload/airline.vim
+cd ~/.vim/vim-airline/autoload/airline/themes
+ln -s ~/.vim/vim-airline-themes/autoload/airline/themes/onedark.vim
+cd ~/.vim/plugin
+ln -s ~/.vim/vim-airline/plugin/airline.vim
+ln -s ~/.vim/vim-airline-themes/plugin/airline-themes.vim
+cd ~/.vim/doc
+ln -s ~/.vim/vim-airline/doc/airline.txt
+
+cd ~/.vim/colors
+curl -o onedark.vim https://raw.githubusercontent.com/joshdick/onedark.vim/master/colors/onedark.vim
+cd ~/.vim/autoload
+curl -o onedark.vim https://raw.githubusercontent.com/joshdick/onedark.vim/master/autoload/onedark.vim
+
+source ~/.bash_profile

@@ -1,0 +1,12 @@
+[user]
+	email = znewton@zendesk.com
+	name = Zach Newton
+[alias]
+	status = st
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	visual = !gitk
