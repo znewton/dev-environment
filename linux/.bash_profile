@@ -14,7 +14,7 @@ setterm -blength 0
 # -------
 
 GREY='\033[38;5;244m'
-BLUE='\033[38;5;45m'
+BLUE='\033[38;5;117m'
 NC='\033[0m'
 clear
 echo -en "
