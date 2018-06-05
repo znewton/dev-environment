@@ -16,10 +16,12 @@ alias dev='cd ~/Code'
 alias note='vim ~/note.txt'
 alias zdconsole='cd ~/Code/zendesk/zendesk_console'
 alias zddi='cd ~/Code/zendesk/docker-images'
-alias zd='cd ~/Code/zendesk'
+alias zd='cd ~/Code/zendesk/zendesk'
 alias lotus='cd ~/Code/zendesk/zendesk_console/lotus_react'
+alias playground='cd ~/Code/playground; yarn start'
 
 # Miscellaneous
 alias gitlines='cloc $(git ls-files)'
-alias cov='yarn test --coverage --coverageDirectory=coverage'
+alias cov='yarn test --coverage --coverageDirectory=coverage; open ./coverage/lcov-report/index.html'
+alias newbash='exec /bin/bash -l'
 

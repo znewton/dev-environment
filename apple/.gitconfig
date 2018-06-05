@@ -10,3 +10,5 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	visual = !gitk
+[core]
+	excludesfile = /Users/znewton/.gitignore_global

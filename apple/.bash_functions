@@ -24,7 +24,7 @@ Options:
   --ssh: Use SSH protocol (default)
   --https: Use HTTPS protocol
 '''
-    exit
+    return
   fi
   if [ $1 == "--https" ]; then
     git clone https://github.com/$2/$3.git $4

@@ -123,6 +123,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+export CLICOLOR=YES
+#export LSCOLORS="Gxfxcxdxbxegedabagacad"
+export LSCOLORS="gxBxhxDxfxhxhxhxhxcxcx"
 
 export M2_HOME=/opt/apache-maven-3.5.2
 export PATH=${M2_HOME}/bin:${PATH}
@@ -139,7 +142,15 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
 eval "$(rbenv init -)"
+export ZENDESK_CODE_DIR="/Users/znewton/Code/zendesk"
+
+# Zendesk variables
+export DOCKER_HOST_IP="192.168.42.45";
+export MYSQL_URL=mysql://admin:123456@$DOCKER_HOST_IP:3306/zendesk_development
+export REDIS_URL=redis://$DOCKER_HOST_IP:6379
+export SMTP_URL=smtp://$DOCKER_HOST_IP:1025/
+export ZENDESK_DOORMAN_ENABLED=1 # Monitor
+export MAILINATOR_TOKEN=e9a0ecc443094b808ef2c127147cb8d7 # Tests
 # BEGIN DOCKER-IMAGES
-export DOCKER_FOR_MAC_ENABLED=true
 source /Users/znewton/Code/zendesk/docker-images/dockmaster/zdi.sh
 # END DOCKER-IMAGES
